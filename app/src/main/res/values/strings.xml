@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">MallManager</string>
+    <string name="add">新增</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="submit">确认</string>
+    <string name="save">保存</string>
+    <string name="sort">排序</string>
+    <string name="sort_nothing">未修改顺序</string>
+    <string name="upload_success">已上传</string>
+    <string name="network_error">网络连接不可用</string>
+    <string name="connect_error">无法连接到服务器</string>
+    <string name="api_error">请求服务器失败</string>
+    <string name="phone_hint">请输入手机</string>
+    <string name="password_hint">请输入密码</string>
+    <array name="gender">
+        <item>男</item>
+        <item>女</item>
+    </array>
+
+
+    <string name="login">登录</string>
+
+    <string name="category">分类</string>
+    <string name="category_add">新增分类</string>
+    <string name="category_edit">编辑分类</string>
+    <string name="category_name_hint">请输入名称</string>
+    <string name="category_delete_confirm">确认删除该分类？</string>
+    <string name="category_hide_confirm">确认隐藏该分类？</string>
+    <string name="category_show_confirm">确认显示该分类？</string>
+
+    <string name="order">订单</string>
+
+    <string name="product">产品</string>
+    <string name="product_all">全部</string>
+    <string name="product_stock">剩余数量：%d</string>
+    <string name="product_delete_confirm">确认删除该产品？</string>
+    <string name="product_online_confirm">确认上架该产品？</string>
+    <string name="product_offline_confirm">确认下架该产品？</string>
+    <string name="product_add">新增产品</string>
+    <string name="product_name_hint">请输入产品名称</string>
+    <string name="product_desc_hint">请输入产品描述</string>
+    <string name="product_actual_price_hint">请输入产品实际价格</string>
+    <string name="product_market_price_hint">请输入产品市场价格</string>
+    <string name="product_category">产品分类</string>
+    <string name="product_cover_image">封面图</string>
+    <string name="product_cover_image_hint">请选择封面图</string>
+    <string name="product_swipe_image">轮播图</string>
+    <string name="product_swipe_image_hint">请选择轮播图</string>
+    <string name="product_desc_image">描述图</string>
+    <string name="product_desc_image_hint">请选择描述图</string>
+    <string name="product_edit">编辑产品</string>
+    <string name="product_sort">产品排序</string>
+    <string name="product_upload_cover_error">上传封面图失败</string>
+    <string name="product_upload_swipe_error">上传轮播图第%d张失败</string>
+    <string name="product_upload_desc_error">上传描述图第%d张失败</string>
+    <string name="product_detail">产品详情</string>
+    <string name="product_picker">选择产品</string>
+
+    <string name="hot">推荐</string>
+    <string name="hot_product_count">%d个产品</string>
+    <string name="hot_add">新增推荐</string>
+    <string name="hot_edit">编辑推荐</string>
+    <string name="hot_desc_hint">请输入描述</string>
+    <string name="hot_image">推荐封面图</string>
+    <string name="hot_image_hint">请选择推荐封面图</string>
+    <string name="hot_upload_image_error">上传推荐封面图失败</string>
+    <string name="hot_delete_confirm">确认删除该推荐？</string>
+    <string name="hot_hide_confirm">确认隐藏该推荐？</string>
+    <string name="hot_show_confirm">确认显示该推荐？</string>
+    <string name="hot_show_tip">该推荐还没有添加产品，不能显示</string>
+    <string name="hot_product">推荐产品</string>
+    <string name="hot_product_delete_confirm">确认删除该产品？</string>
+
+    <string name="user">我的</string>
+    <string name="user_info">用户信息</string>
+    <string name="user_info_head_image">头像</string>
+    <string name="user_info_name">昵称</string>
+    <string name="user_info_name_hint">请输入昵称</string>
+    <string name="user_info_gender">性别</string>
+    <string name="user_info_password">修改密码</string>
+    <string name="user_info_password_old_hint">请输入旧密码</string>
+    <string name="user_info_password_new_hint">请输入新密码</string>
+
+    <string name="wallet">钱包</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    <string name="exit_confirm">确认退出登录？</string>
+
+
+    <string name="admin">管理员</string>
+    <string name="admin_add">新增管理员</string>
+    <string name="admin_delete_confirm">确认删除该管理员？</string>
+    <string name="admin_disable_confirm">确认禁止该管理员登录？</string>
+    <string name="admin_enable_confirm">确认允许该管理员登录？</string>
+    <string name="admin_as_manager">设置为客服</string>
+    <string name="admin_as_manager_confirm">确认将该管理员设置为客服？</string>
+    <string name="admin_reset_password">重置密码</string>
+    <string name="admin_reset_password_hint">请输入新密码</string>
+
+    <string name="manager">客服</string>
+    <string name="manager_delete_confirm">确认删除该客服？</string>
+    <string name="manager_disable_confirm">确认禁止该客服登录？</string>
+    <string name="manager_enable_confirm">确认允许该客服登录？</string>
+    <string name="manager_as_admin">设置为管理员</string>
+    <string name="manager_as_admin_confirm">确认将该客服设置为管理员？</string>
+    <string name="manager_add">新增客服</string>
+</resources>

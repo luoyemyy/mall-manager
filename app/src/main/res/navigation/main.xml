@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/userFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.category.CategoryFragment"
+        android:label="@string/category">
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryAoeFragment"
+            app:destination="@id/categoryAoeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.order.OrderFragment"
+        android:label="@string/order" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductFragment"
+        android:label="@string/product">
+        <action
+            android:id="@+id/action_productFragment_to_productAoeFragment"
+            app:destination="@id/productAoeFragment" />
+        <action
+            android:id="@+id/action_productFragment_to_productSortFragment"
+            app:destination="@id/productSortFragment" />
+        <action
+            android:id="@+id/action_productFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.user.UserFragment"
+        android:label="@string/user">
+        <action
+            android:id="@+id/action_userFragment_to_managerFragment"
+            app:destination="@id/managerFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/managerFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.manager.ManagerFragment"
+        android:label="@string/manager">
+
+        <action
+            android:id="@+id/action_managerFragment_to_managerResetPasswordFragment"
+            app:destination="@id/managerResetPasswordFragment" />
+        <action
+            android:id="@+id/action_managerFragment_to_managerAddFragment"
+            app:destination="@id/managerAddFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.admin.AdminFragment"
+        android:label="@string/admin">
+        <action
+            android:id="@+id/action_adminFragment_to_managerResetPasswordFragment"
+            app:destination="@id/managerResetPasswordFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminAddFragment"
+            app:destination="@id/adminAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.user.UserInfoFragment"
+        android:label="@string/user_info">
+        <action
+            android:id="@+id/action_userInfoFragment_to_userInfoEditNameFragment"
+            app:destination="@id/userInfoEditNameFragment" />
+        <action
+            android:id="@+id/action_userInfoFragment_to_userInfoEditPasswordFragment"
+            app:destination="@id/userInfoEditPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoEditNameFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.user.UserInfoEditNameFragment"
+        android:label="@string/user_info_name" />
+    <fragment
+        android:id="@+id/userInfoEditPasswordFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.user.UserInfoEditPasswordFragment"
+        android:label="@string/user_info_password" />
+    <fragment
+        android:id="@+id/managerResetPasswordFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.manager.ManagerResetPasswordFragment"
+        android:label="@string/admin_reset_password" />
+    <fragment
+        android:id="@+id/managerAddFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.manager.ManagerAddFragment"
+        android:label="@string/manager_add" />
+    <fragment
+        android:id="@+id/adminAddFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.admin.AdminAddFragment"
+        android:label="@string/admin_add" />
+    <fragment
+        android:id="@+id/categoryAoeFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.category.CategoryAoeFragment"
+        android:label="@string/category_add" />
+    <fragment
+        android:id="@+id/productAoeFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductAoeFragment"
+        android:label="@string/product_add" />
+    <fragment
+        android:id="@+id/productSortFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductSortFragment"
+        android:label="@string/product_sort" />
+    <fragment
+        android:id="@+id/hotFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.hot.HotFragment"
+        android:label="@string/hot" >
+        <action
+            android:id="@+id/action_hotFragment_to_hotAoeFragment"
+            app:destination="@id/hotAoeFragment" />
+        <action
+            android:id="@+id/action_hotFragment_to_hotProductFragment"
+            app:destination="@id/hotProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductDetailFragment"
+        android:label="@string/product_detail" />
+    <fragment
+        android:id="@+id/productPickerFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductPickerFragment"
+        android:label="@string/product_picker" />
+    <fragment
+        android:id="@+id/hotAoeFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.hot.HotAoeFragment"
+        android:label="@string/hot_add" />
+    <fragment
+        android:id="@+id/hotProductFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.hot.HotProductFragment"
+        android:label="@string/hot_product" >
+        <action
+            android:id="@+id/action_hotProductFragment_to_productPickerFragment"
+            app:destination="@id/productPickerFragment" />
+        <action
+            android:id="@+id/action_hotProductFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+</navigation>

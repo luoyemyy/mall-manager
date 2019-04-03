@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.github.luoyemyy.mall.manager"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.collection:collection-ktx:$support_version"
+    implementation "androidx.appcompat:appcompat:$compat_version"
+    implementation "androidx.recyclerview:recyclerview:$support_version"
+    implementation "androidx.legacy:legacy-support-v4:$support_version"
+    implementation "androidx.fragment:fragment-ktx:$support_version"
+    implementation "androidx.dynamicanimation:dynamicanimation:$support_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    implementation "com.google.android.material:material:$support_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.aliyun.dpa:oss-android-sdk:$alioss_version"
+    implementation "com.youth.banner:banner:$banner_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation "com.github.luoyemyy.androidx-framework:bus:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:mvp:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:logger:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:permission:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:handler:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:file:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:config:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:ext:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:api:$framework_version"
+    implementation "com.github.luoyemyy.androidx-framework:image_picker:$framework_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+}
