@@ -20,6 +20,7 @@ import com.github.luoyemyy.mall.manager.activity.base.hideLoading
 import com.github.luoyemyy.mall.manager.activity.base.showLoading
 import com.github.luoyemyy.mall.manager.api.data
 import com.github.luoyemyy.mall.manager.api.getProductApi
+import com.github.luoyemyy.mall.manager.api.list
 import com.github.luoyemyy.mall.manager.api.result
 import com.github.luoyemyy.mall.manager.bean.Product
 import com.github.luoyemyy.mall.manager.bean.ProductCategory
@@ -208,7 +209,7 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
             1 -> pickerImages(requireContext()) {
                 mSwipeImagePresenter.add(it)
             }
-            2 -> pickerImages(requireContext()) {
+            2 -> pickerDescImages(requireContext()) {
                 mDescImagePresenter.add(it)
             }
         }
@@ -301,8 +302,22 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
             updateCategory()
             updateProduct()
             swipeImages = listOf(ProductImage(1))
-            descImages = listOf(ProductImage(1))
-            flag.postValue(1)
+            getProductApi().template().list { ok, value ->
+                val list = mutableListOf<ProductImage>()
+                if (ok) {
+                    value?.apply {
+                        value.forEach {
+                            it.type = 0
+                            it.id = 0
+                        }
+                        list += value
+                    }
+                }
+                list += ProductImage(1)
+                flag.postValue(1)
+                descImages = list
+                flag.postValue(1)
+            }
         }
 
         private fun updateCategory() {
@@ -367,7 +382,7 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
                     return@runOnWorker
                 }
                 swipeImages?.forEachIndexed { index, productImage ->
-                    if (productImage.id == 0L && productImage.isImage() && !productImage.uploadImage) {
+                    if (productImage.needUpload()) {
                         productImage.image = Oss.upload(app, productImage.localImage)
                         if (productImage.image.isNullOrEmpty()) {
                             app.getString(R.string.product_upload_swipe_error, index + 1).apply {
@@ -381,7 +396,7 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
                     }
                 }
                 descImages?.forEachIndexed { index, productImage ->
-                    if (productImage.id == 0L && productImage.isImage() && !productImage.uploadImage) {
+                    if (productImage.needUpload()) {
                         productImage.image = Oss.upload(app, productImage.localImage)
                         if (productImage.image.isNullOrEmpty()) {
                             app.getString(R.string.product_upload_desc_error, index + 1).apply {
@@ -401,6 +416,7 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
                     if (it) {
                         Bus.post(BusEvent.PRODUCT_AOE, extra = bundleOf("oldIds" to mOldCategoryIds, "newIds" to p.categoryIds?.toLongArray()))
                         flag.postValue(0)
+                        Bus.post(BusEvent.CLEAR_IMAGE_CACHE)
                     }
                 }
             }

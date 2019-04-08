@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.github.luoyemyy.config.Profile
 import com.github.luoyemyy.ext.md5
 import com.github.luoyemyy.ext.toast
 import com.github.luoyemyy.mall.manager.R
@@ -48,6 +50,12 @@ class LoginActivity : BaseActivity(), TextWatcher, View.OnClickListener {
         mBinding.btnLogin.setOnClickListener(this)
 
         enableLogin()
+
+        mBinding.txtProfile.setOnClickListener {
+            AlertDialog.Builder(this).setItems(arrayOf("dev", "pro")) { _, which ->
+                Profile.setType(if (which == 0) Profile.DEV else Profile.PRO)
+            }.show()
+        }
     }
 
     private fun enableLogin(force: Boolean = false, enable: Boolean = true) {

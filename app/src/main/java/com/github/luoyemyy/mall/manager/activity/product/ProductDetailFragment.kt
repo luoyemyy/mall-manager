@@ -57,7 +57,6 @@ class ProductDetailFragment : BaseFragment() {
 
         mBinding.recyclerView.apply {
             setLinearManager()
-            setHasFixedSize(true)
         }
 
         mBinding.banner.apply {

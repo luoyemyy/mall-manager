@@ -58,6 +58,9 @@
     <string name="product_detail">产品详情</string>
     <string name="product_picker">选择产品</string>
 
+    <string name="product_template">产品模板</string>
+    <string name="product_template_upload_error">上传模板图第%d张失败</string>
+
     <string name="hot">推荐</string>
     <string name="hot_product_count">%d个产品</string>
     <string name="hot_add">新增推荐</string>

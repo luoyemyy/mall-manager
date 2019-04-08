@@ -34,7 +34,7 @@ class ProductFragment : BaseFragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.add_sort, menu)
+        inflater?.inflate(R.menu.product, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -46,6 +46,9 @@ class ProductFragment : BaseFragment() {
                         findNavController().navigate(R.id.action_productFragment_to_productSortFragment, bundleOf("categoryId" to it))
                     }
                 }
+            }
+            R.id.template -> {
+                findNavController().navigate(R.id.action_productFragment_to_productTemplateFragment)
             }
         }
         return true

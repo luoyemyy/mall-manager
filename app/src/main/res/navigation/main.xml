@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_productFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_productFragment_to_productTemplateFragment"
+            app:destination="@id/productTemplateFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -145,5 +148,9 @@
             android:id="@+id/action_hotProductFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/productTemplateFragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductTemplateFragment"
+        android:label="@string/product_template" />
 
 </navigation>

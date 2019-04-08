@@ -2,18 +2,12 @@ package com.github.luoyemyy.mall.manager.activity.user
 
 import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.alibaba.sdk.android.oss.ClientException
-import com.alibaba.sdk.android.oss.ServiceException
-import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback
-import com.alibaba.sdk.android.oss.model.PutObjectRequest
-import com.alibaba.sdk.android.oss.model.PutObjectResult
 import com.github.luoyemyy.bus.Bus
 import com.github.luoyemyy.bus.BusMsg
 import com.github.luoyemyy.bus.BusResult
@@ -28,8 +22,8 @@ import com.github.luoyemyy.mall.manager.databinding.FragmentUserInfoBinding
 import com.github.luoyemyy.mall.manager.util.*
 import com.github.luoyemyy.mvp.getPresenter
 import com.github.luoyemyy.mvp.recycler.LoadType
+import com.github.luoyemyy.mvp.runOnWorker
 import com.github.luoyemyy.picker.ImagePicker
-import java.io.File
 
 class UserInfoFragment : BaseFragment(), View.OnClickListener, BusResult {
 
@@ -105,25 +99,14 @@ class UserInfoFragment : BaseFragment(), View.OnClickListener, BusResult {
 
         fun updateHeadImage(headImage: String) {
             showLoading()
-            val name = File(headImage).name
-            Oss.getInstance().asyncPutObject(PutObjectRequest(UserInfo.getOssBucket(app), name, headImage),
-                object : OSSCompletedCallback<PutObjectRequest, PutObjectResult> {
-                    override fun onSuccess(request: PutObjectRequest?, result: PutObjectResult?) {
-                        updateUser(Oss.url(name), null, -1) {
-                            UserInfo.updateHeadImage(app, headImage)
-                        }
-                        Log.e("Presenter", "onSuccess:  ${result?.eTag}")
-                        Log.e("Presenter", "onSuccess:  ${result?.serverCallbackReturnBody}")
+            runOnWorker {
+                Oss.upload(app, headImage)?.apply {
+                    updateUser(this, null, -1) {
+                        UserInfo.updateHeadImage(app, headImage)
                     }
-
-                    override fun onFailure(
-                        request: PutObjectRequest?,
-                        clientException: ClientException?,
-                        serviceException: ServiceException?
-                    ) {
-                        hideLoading()
-                    }
-                })
+                    Bus.post(BusEvent.CLEAR_IMAGE_CACHE)
+                }
+            }
         }
 
         fun updateName(name: String) {

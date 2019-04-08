@@ -2,6 +2,7 @@ package com.github.luoyemyy.mall.manager.api
 
 import com.github.luoyemyy.mall.manager.bean.Category
 import com.github.luoyemyy.mall.manager.bean.Product
+import com.github.luoyemyy.mall.manager.bean.ProductImage
 import com.github.luoyemyy.mall.manager.bean.Sort
 import io.reactivex.Single
 import retrofit2.http.Body
@@ -33,5 +34,9 @@ interface ProductApi {
     fun sort(@Body sort: List<Sort>): Single<ApiResult>
 
 
+    @GET("admin/product/template")
+    fun template(): Single<ListResult<ProductImage>>
 
+    @POST("admin/product/template/aoe")
+    fun templateAoe(@Body images: List<ProductImage>): Single<ApiResult>
 }

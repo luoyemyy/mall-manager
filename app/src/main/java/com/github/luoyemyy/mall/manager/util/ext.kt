@@ -180,6 +180,12 @@ fun Fragment.pickerImages(context: Context, callback: (List<String>?) -> Unit) {
     }
 }
 
+fun Fragment.pickerDescImages(context: Context, callback: (List<String>?) -> Unit) {
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(9).cropByPercent(0.8f, 0.55f, true, false).compress(360).build().picker(this) {
+        callback(it)
+    }
+}
+
 fun Fragment.pickerImage(context: Context, callback: (String) -> Unit) {
     ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent(0.8f, 0.55f, true).compress(360).build().picker(this) {
         it?.apply {

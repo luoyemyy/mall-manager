@@ -8,6 +8,7 @@ import com.github.luoyemyy.mall.manager.app.App
 
 object BusEvent {
 
+    const val CLEAR_IMAGE_CACHE = "clear.image.cache"
     const val LOADING_START = "loading.start"
     const val LOADING_END = "loading.end"
     const val ERROR_NETWORK = "network.error"

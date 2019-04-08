@@ -14,6 +14,7 @@ import com.github.luoyemyy.mall.manager.R
 import com.github.luoyemyy.mall.manager.activity.base.BaseActivity
 import com.github.luoyemyy.mall.manager.activity.login.LoginActivity
 import com.github.luoyemyy.mall.manager.databinding.ActivityMainBinding
+import com.github.luoyemyy.mall.manager.service.AppService
 import com.github.luoyemyy.mall.manager.util.BusEvent
 import com.github.luoyemyy.mall.manager.util.Oss
 
@@ -59,7 +60,7 @@ class MainActivity : BaseActivity() {
             }
         }
 
-        Bus.addCallback(lifecycle, this, BusEvent.LOGIN_EXPIRE)
+        Bus.addCallback(lifecycle, this, BusEvent.LOGIN_EXPIRE,BusEvent.CLEAR_IMAGE_CACHE)
     }
 
 
@@ -69,6 +70,9 @@ class MainActivity : BaseActivity() {
             BusEvent.LOGIN_EXPIRE -> {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
+            }
+            BusEvent.CLEAR_IMAGE_CACHE->{
+                AppService.clearImage(this)
             }
         }
     }
