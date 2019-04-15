@@ -24,7 +24,7 @@ import com.github.luoyemyy.mvp.getRecyclerPresenter
 import com.github.luoyemyy.mvp.recycler.*
 import com.github.luoyemyy.mvp.runOnWorker
 
-class ProductTemplateFragment : BaseFragment() {
+class ProductTemplate4Fragment : BaseFragment() {
 
     private lateinit var mBinding: FragmentProductTemplateBinding
     private lateinit var mPresenter: Presenter
@@ -125,7 +125,7 @@ class ProductTemplateFragment : BaseFragment() {
         fun add(list: List<String>?) {
             if (!list.isNullOrEmpty()) {
                 getAdapterSupport()?.apply {
-                    list.map { ProductImage(it) }.apply {
+                    list.map { ProductImage(4,it) }.apply {
                         val last = getDataSet().dataList().lastOrNull { it.isImage() }
                         getDataSet().addDataAfter(last, this, getAdapter())
                     }
@@ -140,17 +140,17 @@ class ProductTemplateFragment : BaseFragment() {
             search: String?,
             afterLoad: (Boolean, List<ProductImage>?) -> Unit
         ): Boolean {
-            getProductApi().template().list { ok, value ->
+            getProductApi().template(4).list { ok, value ->
                 val list = mutableListOf<ProductImage>()
                 if (ok) {
                     value?.apply {
                         value.forEach {
-                            it.type = 0
+                            it.type = 4
                         }
                         list += value
                     }
                 }
-                list += ProductImage(1)
+                list += ProductImage(0)
                 afterLoad(true, list)
             }
             return true
@@ -176,18 +176,10 @@ class ProductTemplateFragment : BaseFragment() {
                     flag.postValue(0)
                     return@runOnWorker
                 }
-                list.forEachIndexed { index, productImage ->
-                    if (productImage.id == 0L && productImage.isImage() && !productImage.uploadImage) {
-                        productImage.image = Oss.upload(app, productImage.localImage)
-                        if (productImage.image.isNullOrEmpty()) {
-                            app.getString(R.string.product_template_upload_error, index + 1).apply {
-                                app.toast(message = this)
-                            }
-                            hideLoading()
-                            return@runOnWorker
-                        } else {
-                            productImage.uploadImage = true
-                        }
+                list.forEachIndexed { index, image ->
+                    if (!image.tryUpload(app,app.getString(R.string.product_template4_upload_error, index + 1))){
+                        hideLoading()
+                        return@runOnWorker
                     }
                 }
 

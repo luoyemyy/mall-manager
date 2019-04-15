@@ -26,6 +26,7 @@ class UserFragment : BaseFragment(), View.OnClickListener {
         mBinding.layoutUser.setOnClickListener(this)
         mBinding.txtAdmin.setOnClickListener(this)
         mBinding.txtManger.setOnClickListener(this)
+        mBinding.txtPostage.setOnClickListener(this)
         mBinding.txtWallet.setOnClickListener(this)
         mBinding.txtAbout.setOnClickListener(this)
         mBinding.txtExit.setOnClickListener(this)
@@ -42,6 +43,9 @@ class UserFragment : BaseFragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_userFragment_to_adminFragment)
             }
             mBinding.txtManger -> {
+                findNavController().navigate(R.id.action_userFragment_to_managerFragment)
+            }
+            mBinding.txtPostage -> {
                 findNavController().navigate(R.id.action_userFragment_to_managerFragment)
             }
             mBinding.txtWallet -> {

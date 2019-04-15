@@ -18,6 +18,7 @@ import com.github.luoyemyy.mall.manager.activity.main.MainActivity
 import com.github.luoyemyy.mall.manager.api.data
 import com.github.luoyemyy.mall.manager.api.getUserApi
 import com.github.luoyemyy.mall.manager.databinding.ActivityLoginBinding
+import com.github.luoyemyy.mall.manager.util.MallProfile
 import com.github.luoyemyy.mall.manager.util.MvpSimplePresenter
 import com.github.luoyemyy.mall.manager.util.UserInfo
 import com.github.luoyemyy.mvp.getPresenter
@@ -51,10 +52,13 @@ class LoginActivity : BaseActivity(), TextWatcher, View.OnClickListener {
 
         enableLogin()
 
-        mBinding.txtProfile.setOnClickListener {
-            AlertDialog.Builder(this).setItems(arrayOf("dev", "pro")) { _, which ->
-                Profile.setType(if (which == 0) Profile.DEV else Profile.PRO)
-            }.show()
+        mBinding.txtProfile.apply {
+            text = MallProfile.current()
+            setOnClickListener {
+                MallProfile.select(this@LoginActivity) {
+                    text = it
+                }
+            }
         }
     }
 

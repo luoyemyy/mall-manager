@@ -30,8 +30,11 @@
             android:id="@+id/action_productFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
         <action
-            android:id="@+id/action_productFragment_to_productTemplateFragment"
-            app:destination="@id/productTemplateFragment" />
+            android:id="@+id/action_productFragment_to_productTemplate3Fragment"
+            app:destination="@id/productTemplate3Fragment" />
+        <action
+            android:id="@+id/action_productFragment_to_productTemplate4Fragment"
+            app:destination="@id/productTemplate4Fragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -149,8 +152,11 @@
             app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/productTemplateFragment"
-        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductTemplateFragment"
-        android:label="@string/product_template" />
+        android:id="@+id/productTemplate3Fragment"
+        android:name="com.github.luoyemyy.mall.manager.activity.product.ProductTemplate3Fragment"
+        android:label="@string/product_template3" />
+    <fragment android:id="@+id/productTemplate4Fragment"
+              android:name="com.github.luoyemyy.mall.manager.activity.product.ProductTemplate4Fragment"
+              android:label="@string/product_template4"/>
 
 </navigation>

@@ -4,6 +4,7 @@ import android.app.Application
 import com.github.luoyemyy.config.AppInfo
 import com.github.luoyemyy.mall.manager.util.BusEvent
 import com.github.luoyemyy.mall.manager.util.LiveValues
+import com.github.luoyemyy.mall.manager.util.MallProfile
 
 
 class App : Application() {
@@ -11,6 +12,8 @@ class App : Application() {
         super.onCreate()
         AppInfo.init(this)
 
+
+        MallProfile.init(this)
         LiveValues.initValues(this)
         BusEvent.appEvent(this)
 

@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/add"
+        android:icon="@drawable/ic_add"
         android:title="@string/add"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_add"/>
+        app:showAsAction="always" />
     <item
         android:id="@+id/sort"
-        android:title="@string/sort"
         android:icon="@drawable/ic_sort_menu"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/sort"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/template"
-        android:title="@string/product_template"
+        android:id="@+id/template3"
+        android:title="@string/product_template3"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/template4"
+        android:title="@string/product_template4"
         app:showAsAction="never" />
 
 </menu>

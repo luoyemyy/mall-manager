@@ -47,8 +47,11 @@ class ProductFragment : BaseFragment() {
                     }
                 }
             }
-            R.id.template -> {
-                findNavController().navigate(R.id.action_productFragment_to_productTemplateFragment)
+            R.id.template3 -> {
+                findNavController().navigate(R.id.action_productFragment_to_productTemplate3Fragment)
+            }
+            R.id.template4 -> {
+                findNavController().navigate(R.id.action_productFragment_to_productTemplate4Fragment)
             }
         }
         return true

@@ -33,9 +33,8 @@ interface ProductApi {
     @POST("admin/product/sort")
     fun sort(@Body sort: List<Sort>): Single<ApiResult>
 
-
     @GET("admin/product/template")
-    fun template(): Single<ListResult<ProductImage>>
+    fun template(@Query("type") type: Int): Single<ListResult<ProductImage>>
 
     @POST("admin/product/template/aoe")
     fun templateAoe(@Body images: List<ProductImage>): Single<ApiResult>

@@ -58,8 +58,10 @@
     <string name="product_detail">产品详情</string>
     <string name="product_picker">选择产品</string>
 
-    <string name="product_template">产品模板</string>
-    <string name="product_template_upload_error">上传模板图第%d张失败</string>
+    <string name="product_template3">产品轮播模板</string>
+    <string name="product_template4">产品描述模板</string>
+    <string name="product_template3_upload_error">上传轮播模板图第%d张失败</string>
+    <string name="product_template4_upload_error">上传描述模板图第%d张失败</string>
 
     <string name="hot">推荐</string>
     <string name="hot_product_count">%d个产品</string>
@@ -90,6 +92,10 @@
     <string name="about">关于</string>
     <string name="exit">退出</string>
     <string name="exit_confirm">确认退出登录？</string>
+
+    <string name="postage">邮费</string>
+    <string name="postage_disable">确认该区域不配送？</string>
+    <string name="postage_enable">确认该区域配送？</string>
 
 
     <string name="admin">管理员</string>

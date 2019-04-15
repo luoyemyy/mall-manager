@@ -226,7 +226,7 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
         fun add(list: List<String>?) {
             if (!list.isNullOrEmpty()) {
                 getAdapterSupport()?.apply {
-                    list.map { ProductImage(it) }.apply {
+                    list.map { ProductImage(1, it) }.apply {
                         val last = getDataSet().dataList().lastOrNull { it.isImage() }
                         getDataSet().addDataAfter(last, this, getAdapter())
                     }
@@ -278,15 +278,17 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
                     product = value
                     swipeImages = mutableListOf<ProductImage>().apply {
                         value.swipeImages?.forEach {
+                            it.type = 1
                             add(it)
                         }
-                        add(ProductImage(1))
+                        add(ProductImage(0))
                     }
                     descImages = mutableListOf<ProductImage>().apply {
                         value.descImages?.forEach {
+                            it.type = 2
                             add(it)
                         }
-                        add(ProductImage(1))
+                        add(ProductImage(0))
                     }
                     updateCategory()
                     updateProduct()
@@ -301,21 +303,22 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
             product = Product()
             updateCategory()
             updateProduct()
-            swipeImages = listOf(ProductImage(1))
-            getProductApi().template().list { ok, value ->
-                val list = mutableListOf<ProductImage>()
-                if (ok) {
-                    value?.apply {
-                        value.forEach {
-                            it.type = 0
-                            it.id = 0
-                        }
-                        list += value
-                    }
+            getProductApi().template(3).list { ok, value ->
+                swipeImages = (value?.toMutableList() ?: mutableListOf()).apply {
+                    add(ProductImage(0))
                 }
-                list += ProductImage(1)
+                swipeImages?.forEach {
+                    it.id = 0
+                }
                 flag.postValue(1)
-                descImages = list
+            }
+            getProductApi().template(4).list { ok, value ->
+                descImages = (value?.toMutableList() ?: mutableListOf()).apply {
+                    add(ProductImage(0))
+                }
+                descImages?.forEach {
+                    it.id = 0
+                }
                 flag.postValue(1)
             }
         }
@@ -382,31 +385,15 @@ class ProductAoeFragment : BaseFragment(), View.OnClickListener {
                     return@runOnWorker
                 }
                 swipeImages?.forEachIndexed { index, productImage ->
-                    if (productImage.needUpload()) {
-                        productImage.image = Oss.upload(app, productImage.localImage)
-                        if (productImage.image.isNullOrEmpty()) {
-                            app.getString(R.string.product_upload_swipe_error, index + 1).apply {
-                                app.toast(message = this)
-                            }
-                            hideLoading()
-                            return@runOnWorker
-                        } else {
-                            productImage.uploadImage = true
-                        }
+                    if (!productImage.tryUpload(app, app.getString(R.string.product_upload_swipe_error, index + 1))) {
+                        hideLoading()
+                        return@runOnWorker
                     }
                 }
                 descImages?.forEachIndexed { index, productImage ->
-                    if (productImage.needUpload()) {
-                        productImage.image = Oss.upload(app, productImage.localImage)
-                        if (productImage.image.isNullOrEmpty()) {
-                            app.getString(R.string.product_upload_desc_error, index + 1).apply {
-                                app.toast(message = this)
-                            }
-                            hideLoading()
-                            return@runOnWorker
-                        } else {
-                            productImage.uploadImage = true
-                        }
+                    if (!productImage.tryUpload(app, app.getString(R.string.product_upload_desc_error, index + 1))) {
+                        hideLoading()
+                        return@runOnWorker
                     }
                 }
                 p.swipeImages = swipeImages?.filter { it.isImage() }

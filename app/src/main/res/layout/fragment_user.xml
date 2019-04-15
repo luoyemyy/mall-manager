@@ -123,6 +123,21 @@
             app:is_show="@{entity.roleId==1||entity.roleId==2}"/>
 
         <TextView
+            android:id="@+id/txtPostage"
+            android:elevation="1dp"
+            android:textColor="@color/text_content"
+            android:textSize="14sp"
+            android:layout_marginTop="1px"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/ripple_item"
+            android:text="@string/postage"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:is_show="@{entity.roleId==1||entity.roleId==2}"/>
+
+        <TextView
             android:id="@+id/txtWallet"
             android:elevation="1dp"
             android:textColor="@color/text_content"
