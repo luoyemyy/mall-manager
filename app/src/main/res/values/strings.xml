@@ -6,7 +6,10 @@
     <string name="cancel">取消</string>
     <string name="submit">确认</string>
     <string name="save">保存</string>
+    <string name="save_success">保存成功</string>
     <string name="sort">排序</string>
+    <string name="rmb">￥</string>
+    <string name="point">.</string>
     <string name="sort_nothing">未修改顺序</string>
     <string name="upload_success">已上传</string>
     <string name="network_error">网络连接不可用</string>

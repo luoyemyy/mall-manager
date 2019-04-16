@@ -49,6 +49,7 @@
         <action
             android:id="@+id/action_userFragment_to_userInfoFragment"
             app:destination="@id/userInfoFragment" />
+        <action android:id="@+id/action_userFragment_to_postageFragment" app:destination="@id/postageFragment"/>
     </fragment>
     <fragment
         android:id="@+id/managerFragment"
@@ -158,5 +159,8 @@
     <fragment android:id="@+id/productTemplate4Fragment"
               android:name="com.github.luoyemyy.mall.manager.activity.product.ProductTemplate4Fragment"
               android:label="@string/product_template4"/>
+    <fragment android:id="@+id/postageFragment"
+              android:name="com.github.luoyemyy.mall.manager.activity.postage.PostageFragment"
+              android:label="@string/postage"/>
 
 </navigation>

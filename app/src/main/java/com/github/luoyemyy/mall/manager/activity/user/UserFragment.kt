@@ -46,7 +46,7 @@ class UserFragment : BaseFragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_userFragment_to_managerFragment)
             }
             mBinding.txtPostage -> {
-                findNavController().navigate(R.id.action_userFragment_to_managerFragment)
+                findNavController().navigate(R.id.action_userFragment_to_postageFragment)
             }
             mBinding.txtWallet -> {
             }
