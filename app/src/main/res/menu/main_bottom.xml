@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/orderFragment"
-          android:title="@string/order"
-          android:icon="@drawable/ic_order"
-          app:showAsAction="always"/>
-    <item android:id="@+id/categoryFragment"
-          android:title="@string/category"
-          android:icon="@drawable/ic_category"
-          app:showAsAction="ifRoom"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/orderFragment"
+        android:icon="@drawable/ic_order"
+        android:title="@string/order"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/categoryFragment"
+        android:icon="@drawable/ic_category"
+        android:title="@string/category"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/productFragment"
-          android:title="@string/product"
-          android:icon="@drawable/ic_product"
-          app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/productFragment"
+        android:icon="@drawable/ic_product"
+        android:title="@string/product"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/hotFragment"
-        android:title="@string/hot"
+    <item
+        android:id="@+id/hotFragment"
+        android:visible="false"
         android:icon="@drawable/ic_hot"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/hot"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/userFragment"
-          android:title="@string/user"
-          android:icon="@drawable/ic_user"
-          app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/userFragment"
+        android:icon="@drawable/ic_user"
+        android:title="@string/user"
+        app:showAsAction="ifRoom" />
 
 </menu>

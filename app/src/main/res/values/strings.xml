@@ -33,7 +33,7 @@
     <string name="category_hide_confirm">确认隐藏该分类？</string>
     <string name="category_show_confirm">确认显示该分类？</string>
 
-    <string name="order">订单</string>
+
 
     <string name="product">产品</string>
     <string name="product_all">全部</string>
@@ -118,4 +118,20 @@
     <string name="manager_as_admin">设置为管理员</string>
     <string name="manager_as_admin_confirm">确认将该客服设置为管理员？</string>
     <string name="manager_add">新增客服</string>
+
+    <string name="order">订单</string>
+    <array name="order_type">
+        <item>未支付</item>
+        <item>已支付</item>
+        <item>待发货</item>
+        <item>发货中</item>
+        <item>运输中</item>
+        <item>已签收</item>
+        <item>取消审核</item>
+        <item>退货审核</item>
+        <item>退货中</item>
+        <item>退款中</item>
+        <item>已取消</item>
+    </array>
+    <string name="order_item_count">共%s件商品，合计：￥%s</string>
 </resources>

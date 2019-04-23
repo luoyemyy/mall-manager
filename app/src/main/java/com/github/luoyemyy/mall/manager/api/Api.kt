@@ -30,3 +30,5 @@ fun getHotApi(): HotApi = Api().getApi()
 
 fun getPostageApi(): PostageApi = Api().getApi()
 
+fun getOrderApi(): OrderApi = Api().getApi()
+
