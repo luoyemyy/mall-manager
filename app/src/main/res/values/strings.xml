@@ -127,11 +127,24 @@
         <item>发货中</item>
         <item>运输中</item>
         <item>已签收</item>
-        <item>取消审核</item>
-        <item>退货审核</item>
+        <item>待取消</item>
+        <item>待退货</item>
         <item>退货中</item>
         <item>退款中</item>
         <item>已取消</item>
     </array>
     <string name="order_item_count">共%s件商品，合计：￥%s</string>
+    <string name="order_detail">订单详情</string>
+    <string name="order_detail_user">收件人</string>
+    <string name="order_detail_express">快递</string>
+    <string name="order_detail_express_company">快递公司：</string>
+    <string name="order_detail_express_no">快递单号：</string>
+    <string name="order_detail_money">金额</string>
+    <string name="order_detail_money_all">总价：</string>
+    <string name="order_detail_money_postage">邮费：</string>
+    <string name="order_detail_money_product">产品：</string>
+    <string name="order_detail_product">产品</string>
+    <string name="order_detail_create_time">下单时间</string>
+
+
 </resources>

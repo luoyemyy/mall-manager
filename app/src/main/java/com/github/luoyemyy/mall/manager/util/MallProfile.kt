@@ -10,7 +10,7 @@ import com.github.luoyemyy.mall.manager.api.Api
 
 object MallProfile {
     fun getApiUrl(): String {
-        return devDevDevPro("http://192.168.0.141:8080/", "http://47.106.181.28/").value()
+        return devDevDevPro("http://192.168.0.143:8080/", "http://47.106.181.28/").value()
     }
 
     fun current(): String {

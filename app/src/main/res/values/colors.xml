@@ -12,6 +12,7 @@
     <color name="text_header">#FF000000</color>
     <color name="text_title">#CC000000</color>      <!-- 87% -->
     <color name="text_content">#99000000</color>    <!-- 60% -->
+    <color name="text_secondary">#68000000</color>  <!-- 40% -->
     <color name="text_hint">#20000000</color>       <!-- 12% -->
     <color name="text_disable">#61000000</color>    <!-- 38% -->
     <color name="text_blue">#0047f0</color>    <!-- 38% -->

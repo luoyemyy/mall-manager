@@ -155,39 +155,44 @@ fun Fragment.previewImage(view: View, url: String) {
 }
 
 fun Fragment.pickerPhoto(context: Context, callback: (String) -> Unit) {
-    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent().compress(100).build().picker(this) {
-        it?.apply {
-            if (isNotEmpty()) {
-                callback(it[0])
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent().compress(100).build()
+        .picker(this) {
+            it?.apply {
+                if (isNotEmpty()) {
+                    callback(it[0])
+                }
             }
         }
-    }
 }
 
 fun Fragment.pickerCover(context: Context, callback: (String) -> Unit) {
-    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent().compress(200).build().picker(this) {
-        it?.apply {
-            if (isNotEmpty()) {
-                callback(it[0])
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent().compress(200).build()
+        .picker(this) {
+            it?.apply {
+                if (isNotEmpty()) {
+                    callback(it[0])
+                }
             }
         }
-    }
 }
 
 fun Fragment.pickerImages(context: Context, callback: (List<String>?) -> Unit) {
-    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(9).cropByPercent(0.8f, 0.55f, true).compress(360).build().picker(this) {
+//    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(9).cropByPercent(0.8f, 1f, true).compress(360).build().picker(this) {
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(99).compress(750).build().picker(this) {
         callback(it)
     }
 }
 
 fun Fragment.pickerDescImages(context: Context, callback: (List<String>?) -> Unit) {
-    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(9).cropByPercent(0.8f, 0.55f, true, false).compress(360).build().picker(this) {
+//    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(9).cropByPercent(0.8f, 0.55f, true, false).compress(360).build().picker(this) {
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(99).compress(750).build().picker(this) {
         callback(it)
     }
 }
 
 fun Fragment.pickerImage(context: Context, callback: (String) -> Unit) {
-    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent(0.8f, 0.55f, true).compress(360).build().picker(this) {
+    ImagePicker.create(context.packageName).albumAndCamera().maxSelect(1).cropByPercent(0.8f, 0.55f, true).compress(360)
+        .build().picker(this) {
         it?.apply {
             if (isNotEmpty()) {
                 callback(it[0])
